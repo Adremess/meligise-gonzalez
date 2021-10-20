@@ -1,4 +1,5 @@
 import React from 'react'
+import CartWidget from './CartWidget';
 
 let styles = {
   display: 'flex',
@@ -37,6 +38,7 @@ const NavBar = () => {
             <li style={categoriesItems}><a href='/'>Autos</a></li>
           </ul>
         </div>
+        <CartWidget />
         <div>
           <a href="/">Login</a>
         </div>
