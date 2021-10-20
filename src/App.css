@@ -30,3 +30,25 @@
   text-align: center;
   padding: 50px;
 }
+
+.searchBox {
+  height: 30px;
+  width: 220px;
+}
+
+.searchBox button {
+  height: 100%;
+  width: 15%;
+  padding: 5px;
+  outline: none;
+  border: none;
+  position: relative;
+  right: 33px;
+}
+
+.searchBox input {
+  height: 100%;
+  width: 85%;
+  outline: none;
+  border: none;
+}

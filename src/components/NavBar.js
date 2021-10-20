@@ -1,5 +1,6 @@
 import React from 'react'
 import CartWidget from './CartWidget';
+import { BsSearch } from 'react-icons/bs';
 
 let styles = {
   display: 'flex',
@@ -29,7 +30,7 @@ const NavBar = () => {
         </a>
         <div className="searchBox">
           <input placeholder='Buscar productos..' />
-          <button>Buscar</button>
+          <button><BsSearch /></button>
         </div>
         <div className="categoriesList">
           <ul style={categoriesStyles}>
