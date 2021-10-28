@@ -40,6 +40,7 @@
   height: 100%;
   text-align: center;
   pointer-events: none;
+  font-weight: bold;
 }
 
 .submitButton {
