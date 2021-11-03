@@ -1,16 +1,17 @@
 import React from 'react'
 import CartWidget from './CartWidget';
 import { BsSearch } from 'react-icons/bs';
+import './NavBar.css';
 
-let styles = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  padding: '14px',
-  borderBottom: '1px solid rgba(0, 0, 0, .2)',
-  borderRadius: '0 0 7px 7px',
-  backgroundColor: 'rgba(0, 0, 0, .1)'
-};
+// let styles = {
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'space-between',
+//   padding: '14px',
+//   borderBottom: '1px solid rgba(0, 0, 0, .2)',
+//   borderRadius: '0 0 7px 7px',
+//   backgroundColor: 'rgba(0, 0, 0, .1)'
+// };
 
 let categoriesStyles = {
   display: 'flex',
@@ -24,7 +25,7 @@ let categoriesItems = {
 const NavBar = () => {
   return (
     <div>
-      <header style={styles}>
+      <header>
         <a href="/">
           <img src="#" alt="logo" />
         </a>

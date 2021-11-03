@@ -5,8 +5,7 @@ import './ItemCount.css';
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [ counter, setCounter ] = useState(initial);
 
-  function addItem() {
-    console.log('1');
+  const addItem = () => {
     if (counter < stock) {
       setCounter(counter + 1);
     } else {
@@ -14,8 +13,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
   };
 
-  function removeItem() {
-    console.log('2');
+  const removeItem = () => {
     if (counter > 0) setCounter(counter - 1);
   };
 
