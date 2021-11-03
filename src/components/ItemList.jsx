@@ -17,9 +17,11 @@ const ItemList = ({ items }) => {
     .then(res => setData(res));
   }, []);
   return <>
-    { loading ? 'Loading..' : data.map(i => {
-      return <Item data={i} key={i.title} />
-    })}
+    <div>
+      { loading ? 'Loading..' : data.map(i => {
+        return <Item data={i} key={i.title} />
+      })}
+    </div>
   </>
 };
 
