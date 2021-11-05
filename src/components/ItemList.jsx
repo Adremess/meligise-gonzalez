@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item';
+import './Item.css';
 
 const ItemList = ({ items }) => {
   const [ loading, setLoading ] = useState(true);
@@ -17,7 +18,7 @@ const ItemList = ({ items }) => {
     .then(res => setData(res));
   }, []);
   return <>
-    <div>
+    <div className="item-list">
       { loading ? 'Loading..' : data.map(i => {
         return <Item data={i} key={i.title} />
       })}
