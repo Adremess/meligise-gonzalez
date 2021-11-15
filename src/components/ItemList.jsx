@@ -5,7 +5,6 @@ import './Item.css';
 const ItemList = ({ item }) => {
   const [ loading, setLoading ] = useState(true);
   const [ items, setItems ] = useState([]);
-  item === undefined ? console.log('nop') : console.log('yass');
 
   const getData = new Promise((res, rej) => {
     setTimeout(() => {
@@ -18,7 +17,6 @@ const ItemList = ({ item }) => {
     getData
     .then(data => data.json())
     .then(data => setItems(data.results));
-    console.log(items);
   }, [item]);
   return <>
     { item === undefined ? <div className="default-display">Ingrese en alguna categoria para ver los productos o busque el de su interes!</div>

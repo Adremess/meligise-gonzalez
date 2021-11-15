@@ -71,3 +71,8 @@
   color: #fff;
   transform: translateY(-7px);
 }
+
+.default-display {
+  margin: 10% 0 0 15%;
+  font-size: 1.7rem;
+}

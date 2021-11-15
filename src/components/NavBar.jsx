@@ -3,6 +3,7 @@ import CartWidget from './CartWidget';
 import { BsSearch } from 'react-icons/bs';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const NavBar = () => {
   const [ search, setSearch ] = useState('');
@@ -14,7 +15,7 @@ const NavBar = () => {
     <div>
       <header>
         <a href="/">
-          <img src="#" alt="logo" />
+          <img src={logo} alt="logo" />
         </a>
         <div className="searchBox">
           <input value={search} placeholder='Buscar productos..' onChange={(e) => handleInput(e)}/>
