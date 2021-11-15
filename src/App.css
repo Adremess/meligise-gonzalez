@@ -56,3 +56,8 @@ body {
   outline: none;
   border: none;
 }
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+}

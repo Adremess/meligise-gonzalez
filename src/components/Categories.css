@@ -1,0 +1,20 @@
+.categories-container {
+  padding: 54px;
+  margin-top: 5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.categories-title {
+  font-size: .9rem;
+}
+
+.categories-ul li {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.categories-link {
+  margin: 5px 0;
+  text-decoration: none;
+}

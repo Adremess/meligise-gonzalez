@@ -1,11 +1,15 @@
 header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  /* border-bottom: 1px solid rgba(0, 0, 0, .2); */
   border-radius: 0 0 7px 7px;
-  background-color: rgba(35, 25, 66, .9);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
 }
 
 header a {

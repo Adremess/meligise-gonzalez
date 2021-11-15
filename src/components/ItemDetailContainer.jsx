@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
+import "./ItemDetail.css";
 
 const ItemDetailContainer = () => {
-  const [ data, setData ] = useState({});
-  const getItem = new Promise((res, rej) => {
-    setTimeout(() => {
-      res( {
-        title: "Winter Guard #3 (2021)",
-        year: "Year : 2021 | Size : 29 MB",
-        description: "A SEAT AT THE TABLE! The White Widow and Red Guardian are ready to strike a bargain — but not with the Winter Guard....",
-        pictureUrl: "https://i1.wp.com/getcomics.info/share/uploads/2021/11/Winter-Guard-3-2021.jpg?fit=400%2C615&ssl=1",
-        price: 6
-      });
-    }, 2000);
-  });
+  const [ item, setItem ] = useState(null);
+  const [ description, setDescription ] = useState('');
+  const { id } = useParams();
 
   useEffect(() => {
-    getItem.then(res => setData(res));
-  }, []);
-  return <div>
-    <ItemDetail item={data} />
+    const getItem = async () => {
+      const description = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
+      const itemInfo = await fetch(`https://api.mercadolibre.com/items/${id}`);
+      const descrptionParsed = await description.json();
+      const itemInfoParsed = await itemInfo.json();
+      setItem(itemInfoParsed);
+      setDescription(descrptionParsed.plain_text);
+    };
+
+    setTimeout(() => {
+      getItem();
+    }, 2000);
+  }, [id]);
+  return <div className="itemDetailContainer-container">
+    {item ? <ItemDetail item={item} description={description} /> : 'Cargando..'}
+    
   </div>
 };
 
