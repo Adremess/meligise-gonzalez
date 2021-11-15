@@ -10,14 +10,12 @@ Para correr el proyecto y poder ver sus funcionalidades en live mode es recomend
 ### `npm start`
 
 Corre la app en modo desarrollo.\
-Inicia la app en [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Inicia la app en [http://localhost:3000](http://localhost:3000) para visualizarlo en el navegador.
 
 
 ## Librerias utilizadas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Librerias utiles incorporadas al proyecto para ayudar en el desarrollo:
 
 ### react-router-dom
 
