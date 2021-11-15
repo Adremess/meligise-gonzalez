@@ -6,18 +6,21 @@ const ItemList = ({ item }) => {
   const [ loading, setLoading ] = useState(true);
   const [ items, setItems ] = useState([]);
 
-  const getData = new Promise((res, rej) => {
-    setTimeout(() => {
-      setLoading(false);
-      res(fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${item}&limit=20`));
-    }, 2000);
-  });
-
+  
   useEffect(() => {
+    const getData = new Promise((res, rej) => {
+      setTimeout(() => {
+        setLoading(false);
+        res(fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${item}&limit=20`));
+      }, 2000);
+    });
+    
+
     getData
     .then(data => data.json())
     .then(data => setItems(data.results));
   }, [item]);
+
   return <>
     { item === undefined ? <div className="default-display">Ingrese en alguna categoria para ver los productos o busque el de su interes!</div>
     : <div className="item-list">

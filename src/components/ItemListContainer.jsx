@@ -5,7 +5,6 @@ import ItemList from './ItemList';
 const ItemListContainer = () => {
   const { id } = useParams();
 
-
   return <>
     <ItemList item={id} />
   </>
