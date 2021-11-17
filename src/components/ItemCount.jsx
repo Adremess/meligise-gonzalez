@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
 import './ItemCount.css';
 
@@ -25,6 +26,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 <button type="button" onClick={removeItem}><FiMinusCircle className="minus" /></button>
               </div>
               <div className="submitButton">
+                <Link to={``} /> <Link to={``} />
                 <button type="button" onClick={stock !== 0 ? (e) => onAdd(counter, e) : ''}>Agregar al carrito</button>
               </div>
             </div>        

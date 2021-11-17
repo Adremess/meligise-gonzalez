@@ -1,19 +1,17 @@
 .detail-container {
   background-color: #fff;
-  width: 900px;
-  height: 550px;
-  border: 2px solid grey;
+  width: 1200px;
+  height: 650px;
   border-radius: 10px;
   margin: 5% auto 0 auto;
   padding: 20px;
   display: flex;
   align-self: center;
   justify-content: space-between;
-  overflow: scroll;
 }
 
 .detail-img {
-  width: 50%;
+  width: 40%;
   height: 100%;
 }
 
@@ -23,10 +21,11 @@
 }
 
 .detail-info {
-  width: 50%;
+  width: 60%;
   height: 90%;
   padding-left: 30px;
   font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
 }
 
 .detail-info h2 {
@@ -35,11 +34,13 @@
   font-size: 1.8rem;
 }
 
-.detail-info span {
+.detail-price {
   font-weight: bold;
+  margin: 20px 0 20px 40px;
+  font-size: 1.9rem;
 }
 
 .itemDetailContainer-container {
-  margin: 5% auto 0 auto;
+  margin: 5% 0 0 5%;
   overflow: hidden;
 }
