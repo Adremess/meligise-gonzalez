@@ -13,14 +13,15 @@ body {
   width: 80px;
   display: flex;
   align-items: center;
-  background-color: rgba(136, 136, 136, .3);
-  border-radius: 3px;
+  background-color: rgba(0, 0, 0, .9);
+  border-radius: 5px;
 }
 
 .cart-icon {
   height: 70%;
   width: 70%;
   margin: 0 5px 0 13px;
+  color: white;
 }
 
 .cart-span {
@@ -28,6 +29,7 @@ body {
   width: 40px;
   font-weight: bold;
   padding-top: 10%;
+  color: white;
 }
 
 .greeting {

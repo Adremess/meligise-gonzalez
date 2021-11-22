@@ -4,7 +4,7 @@ import ItemDetail from './ItemDetail';
 import "./ItemDetail.css";
 
 const ItemDetailContainer = () => {
-  const [ item, setItem ] = useState(null);
+  const [ item, setItem ] = useState('antiparras');
   const [ description, setDescription ] = useState('');
   const { id } = useParams();
 
@@ -21,9 +21,10 @@ const ItemDetailContainer = () => {
     setTimeout(() => {
       getItem();
     }, 2000);
-  }, [id]);
+  }, [id, item]);
+  console.log(item)
   return <div className="itemDetailContainer-container">
-    {item ? <ItemDetail item={item} description={description} /> : 'Cargando..'}
+    {item!=='' ? <ItemDetail item={item} description={description} /> : 'Cargando..'}
     
   </div>
 };

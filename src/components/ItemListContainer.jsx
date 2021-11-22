@@ -6,7 +6,7 @@ const ItemListContainer = () => {
   const { id } = useParams();
 
   return <>
-    { id === undefined ? 'Cargando..' : <ItemList item={id} /> }
+    { id === undefined ? <ItemList item={"antiparras"} /> : <ItemList item={id} /> }
   </>
 };
 

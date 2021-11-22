@@ -22,12 +22,13 @@ const ItemList = ({ item }) => {
   }, [item]);
 
   return <>
-    { item === undefined ? <div className="default-display">Ingrese en alguna categoria para ver los productos o busque el de su interes!</div>
-    : <div className="item-list">
+    { item !=='' ? 
+     <div className="item-list">
     { loading ? 'Loading..' : items.map(i => {
       return <Item data={i} key={i.id} />
     })}
-  </div> }
+  </div> 
+  : <div className="default-display">Ingrese en alguna categoria para ver los productos o busque el de su interes!</div>}
   </>
 };
 

@@ -1,16 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import CartWidget from './CartWidget';
 import { BsSearch } from 'react-icons/bs';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { CartContext } from './CartContext';
 
 const NavBar = () => {
   const [ search, setSearch ] = useState('');
+  const [ show, setShow ] = useState(false);
+  const [ count, setCount ] = useState(0);
+  const { cartList, getQuantity } = useContext(CartContext);
 
   const handleInput = (e) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    if (cartList.length > 0) {
+      setCount(getQuantity());
+      setShow(true);
+    }
+
+  }, [cartList.length, getQuantity]);
+
   return (
     <div>
       <header>
@@ -23,7 +36,7 @@ const NavBar = () => {
             <button onClick={() => {console.log(search); setSearch('')}}><BsSearch /></button>
           </Link>
         </div>
-        <CartWidget />
+        { show ? <CartWidget count={count} /> : '' }
         <div>
           <a href="/">Login</a>
         </div>

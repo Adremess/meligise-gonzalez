@@ -1,19 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import ItemCount from './ItemCount';
 import ItemDetailFinishButtons from './ItemDetailFinishButtons';
 import './ItemDetail.css';
+import { CartContext } from './CartContext';
 
 const ItemDetail = ({ item, description }) => {
   const [ count, setCount ] = useState(1);
   const [ finish, setFinish ] = useState(false);
+  const { addItem, cartList, isInCart } = useContext(CartContext);
 
   function onAdd(amount, e) {
     e.preventDefault();
     if (amount > 0) {
-      setCount(amount);}
+      setCount(amount);
+      isInCart(item.id);
+      addItem({title: item.title,
+              price: item.price,
+              id: item.id,
+              thumbnail: item.pictures[0].url},
+              amount);
+            }
+            isInCart(item.id);
       setFinish(true);
   }
-
+  console.log(cartList);
+    
   function onFinish(e) {
     e.preventDefault();
     setFinish(false);
