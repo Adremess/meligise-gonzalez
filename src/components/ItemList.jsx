@@ -12,7 +12,7 @@ const ItemList = ({ item }) => {
       setTimeout(() => {
         setLoading(false);
         res(fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${item}&limit=20`));
-      }, 2000);
+      });
     });
     
 

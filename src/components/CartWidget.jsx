@@ -10,9 +10,9 @@ const CartWidget = ({ count }) => {
 
   return <>
     <Link to={`/cart`}>
-    <div className="cart-container">
-      <BsCart3 className="cart-icon" />
-      <span className="cart-span">{cartList.length > 0 ? count : ''}</span>
+    <div className="cart-nav-container">
+      <BsCart3 className="cart-nav-icon" />
+      <span className="cart-nav-span">{cartList.length > 0 ? count : ''}</span>
     </div>
     </Link>
   </>

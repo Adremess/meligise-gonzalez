@@ -20,8 +20,8 @@ const ItemDetailContainer = () => {
 
     setTimeout(() => {
       getItem();
-    }, 2000);
-  }, [id, item]);
+    });
+  }, [id]);
   console.log(item)
   return <div className="itemDetailContainer-container">
     {item!=='' ? <ItemDetail item={item} description={description} /> : 'Cargando..'}

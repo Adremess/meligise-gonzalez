@@ -4,7 +4,7 @@ import ItemDetailFinishButtons from './ItemDetailFinishButtons';
 import './ItemDetail.css';
 import { CartContext } from './CartContext';
 
-const ItemDetail = ({ item, description }) => {
+const ItemDetail = ({ item=undefined, description }) => {
   const [ count, setCount ] = useState(1);
   const [ finish, setFinish ] = useState(false);
   const { addItem, cartList, isInCart } = useContext(CartContext);
@@ -20,7 +20,7 @@ const ItemDetail = ({ item, description }) => {
               thumbnail: item.pictures[0].url},
               amount);
             }
-            isInCart(item.id);
+      isInCart(item.id);
       setFinish(true);
   }
   console.log(cartList);
@@ -31,9 +31,9 @@ const ItemDetail = ({ item, description }) => {
   }
 
   return <>
-    { Object.keys(item) !== 0 ? <div className="detail-container">
+    { item !== 0 ? <div className="detail-container">
     <div className="detail-img">
-      <img src={item.pictures[0].url} alt="item pic" />
+      { item.pictures !== undefined ? <img src={item.pictures[0].url} alt="item pic" /> : 'Cargando..' }
       { finish ? <ItemDetailFinishButtons onFinish={onFinish} /> : <ItemCount stock={7} initial={count} onAdd={onAdd}/>}
     </div>
     <div className="detail-info">
