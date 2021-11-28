@@ -5,25 +5,18 @@ import './Cart.css';
 import CartNoItems from './CartNoItems';
 
 const Cart = () => {
-  const [ items, setItems ] = useState(undefined);
-  const [ ready, setReady ] = useState(false);
   const [ total, setTotal ] = useState(0);
   const { removeItem, cartList } = useContext(CartContext);
 
   useEffect(() => {
-    if (cartList.length > 0) {
-      setItems(cartList);
-      setReady(true);
-      setTotal(items.reduce((acc, curr) => { return acc + (curr.item.price * curr.quantity) }, 0));
-    } else {
-      setItems(undefined);
-    }
-  }, [items, cartList]);
+      setTotal(cartList.reduce((acc, curr) => { return acc + (curr.item.price * curr.quantity) }, 0));
+  }, [cartList]);
+  console.log(cartList);
 
   return <div className="cart-container">
-    { items ? <div>
+    { cartList.length > 0 ? <div>
       <ul className="cart-ul">
-        { items.map((i, j) => { 
+        { cartList.map((i, j) => { 
           console.log(j);
           return <li className="cart-li" key={i.item.id}>
             <div className="item-main">
@@ -41,10 +34,6 @@ const Cart = () => {
               <span className="item-total">${i.item.price * i.quantity}</span>
               <GrFormClose className="item-remove" onClick={() => removeItem(i.item.id)} />
             </div>
-            
-            {/* <td className="cart-data">
-              <button className="cart-button" type='button' onClick={() => removeItem(i.item.id)}>remove</button>
-            </td> */}
             </li>}) }
       </ul>
       <div className="cart-summary">

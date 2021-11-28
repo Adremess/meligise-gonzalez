@@ -4,26 +4,29 @@ import ItemDetailFinishButtons from './ItemDetailFinishButtons';
 import './ItemDetail.css';
 import { CartContext } from './CartContext';
 
-const ItemDetail = ({ item=undefined, description }) => {
+const ItemDetail = ({ item }) => {
   const [ count, setCount ] = useState(1);
   const [ finish, setFinish ] = useState(false);
-  const { addItem, cartList, isInCart } = useContext(CartContext);
+  const { addItem, cartList, isInCart, itemQuantity } = useContext(CartContext);
 
   function onAdd(amount, e) {
     e.preventDefault();
-    if (amount > 0) {
+    if (amount > 0 && itemQuantity(item.id) < item.stock) {
       setCount(amount);
       isInCart(item.id);
       addItem({title: item.title,
               price: item.price,
-              id: item.id,
-              thumbnail: item.pictures[0].url},
+              id: item.categoryId,
+              thumbnail: item.thumbnail,
+              description: item.description,
+              stock: item.stock},
               amount);
+            } else {
+              alert('No hay suficiente stock!');
             }
       isInCart(item.id);
       setFinish(true);
   }
-  console.log(cartList);
     
   function onFinish(e) {
     e.preventDefault();
@@ -31,16 +34,16 @@ const ItemDetail = ({ item=undefined, description }) => {
   }
 
   return <>
-    { item !== 0 ? <div className="detail-container">
+    { item ? <div className="detail-container">
     <div className="detail-img">
-      { item.pictures !== undefined ? <img src={item.pictures[0].url} alt="item pic" /> : 'Cargando..' }
-      { finish ? <ItemDetailFinishButtons onFinish={onFinish} /> : <ItemCount stock={7} initial={count} onAdd={onAdd}/>}
+      <img src={item.thumbnail} alt="item pic" />
+      { finish ? <ItemDetailFinishButtons onFinish={onFinish} /> : <ItemCount stock={item.stock} initial={count} onAdd={onAdd}/>}
     </div>
     <div className="detail-info">
       <h2>{item.title}</h2>
       <h3 className="detail-price">{`$${item.price}`}</h3>
       <h3>Descripcion: </h3>
-      <p>{`${description}`}</p>
+      <p>{`${item.description}`}</p>
     </div></div> : 'Cargando..' }
   </>
 };

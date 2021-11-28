@@ -41,6 +41,16 @@ const CartContextProvider = ({ children }) => {
     return exist;
   };
 
+  const itemQuantity = (id) => {
+    let prodCount = 0;
+    for (let i = 0; i < cartList.length; i++) {
+      if (cartList[0].item.id === id) {
+        prodCount = cartList[i].quantity;
+      }
+    }
+    return prodCount;
+  };
+
   const getQuantity = () => {
     let total = 0;
     cartList.forEach(el => total += el.quantity);
@@ -56,7 +66,8 @@ const CartContextProvider = ({ children }) => {
     cartList,
     total,
     setTotal,
-    getQuantity
+    getQuantity,
+    itemQuantity
     }}>
     {children}
   </CartContext.Provider>;
