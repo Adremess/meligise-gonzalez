@@ -21,11 +21,11 @@ const ItemDetail = ({ item }) => {
               description: item.description,
               stock: item.stock},
               amount);
-            } else {
-              alert('No hay suficiente stock!');
-            }
-      isInCart(item.id);
-      setFinish(true);
+    } else {
+      alert('No hay suficiente stock!');
+    }
+    isInCart(item.id);
+    setFinish(true);
   }
     
   function onFinish(e) {

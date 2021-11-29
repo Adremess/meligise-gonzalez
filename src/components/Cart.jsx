@@ -11,7 +11,6 @@ const Cart = () => {
   useEffect(() => {
       setTotal(cartList.reduce((acc, curr) => { return acc + (curr.item.price * curr.quantity) }, 0));
   }, [cartList]);
-  console.log(cartList);
 
   return <div className="cart-container">
     { cartList.length > 0 ? <div>

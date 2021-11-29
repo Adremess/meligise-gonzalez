@@ -9,28 +9,15 @@ const ItemListContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const dbQuery = getFireStore();
+    const db = getFireStore();
+    const dbQuery = id ? db.collection('items').where('categoryId', '==', `${id}`) : db.collection('items');
 
-    if (id) {
-      dbQuery
-      .collection('items')
-      .where('categoryId', '==', `${id}`)
-      .get()
-      .then((data) =>
-        setItems(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
+    dbQuery.get()
+    .then(data =>
+      setItems(data.docs.map(prod => ({ id: prod.id, ...prod.data() })))
       )
-      .catch(err => console.log(err))
-      .finally(() => setLoading(false));
-    } else {
-      dbQuery
-        .collection('items')
-        .get()
-        .then((data) =>
-          setItems(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
-        )
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false));
-    }
+    .catch(err => console.log(err))
+    .finally(() => setLoading(false));
   }, [id])
 
   return <>
