@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getFireStore } from '../service/getFirestore';
 import ItemList from './ItemList';
+import Loader from './Loader/Loader';
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -21,7 +22,7 @@ const ItemListContainer = () => {
   }, [id])
 
   return <>
-    {!loading ? <ItemList item={items} /> : 'Cargando..'}
+    {!loading ? <ItemList item={items} /> : <Loader /> }
   </>
 };
 
