@@ -71,10 +71,34 @@
   vertical-align: baseline;
 }
 
-.cart-summary {
-  float: left;
-}
-
 ul {
   list-style: none;
+}
+
+.cart-summary {
+  border-top:1px solid #ccc;
+  margin-top:15px;
+  padding-top:15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-btn {
+  text-decoration: none;
+  display:inline-block;
+  font-size:.9em;
+  padding:12px 30px;
+  background:#ffc21d;
+  color:#232323;
+  font-weight:900;
+  cursor:pointer;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:2px;
+  opacity:1;
+  transition:opacity .3s;
+}
+
+.cart-btn:hover {
+  opacity: .8;
 }
