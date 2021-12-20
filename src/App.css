@@ -8,6 +8,28 @@ body {
   background-color: #f8f8f8;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #efeaf1 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #efeaf1;
+    border-radius: 10px;
+    border: 3px solid #efeaf1;
+  }
+
 .cart-nav-container {
   height: 50px;
   width: 80px;
