@@ -27,7 +27,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       </div>
       <div className="submitButton">
         <button type="button" onClick={stock !== 0 ? (e) => onAdd(counter, e) : ''}>Agregar al carrito</button>
-        {/* <button type="button" onClick={stock !== 0 ? (e) => onAdd(counter, e) : ''}>Agregar al wishlist</button> */}
       </div>
     </div>
   </>
