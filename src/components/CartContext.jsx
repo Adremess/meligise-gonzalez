@@ -54,7 +54,6 @@ const CartContextProvider = ({ children }) => {
   const getQuantity = () => {
     let total = 0;
     cartList.forEach(el => total += el.quantity);
-    console.log('Cantidad items en carrito: ' + total);
     return total;
   }
   

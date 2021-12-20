@@ -57,7 +57,6 @@ const Cart = () => {
       ...personalInfo,
       [`${e.target.name}`]: e.target.value
     });
-    console.log(personalInfo);
   }
 
   const handleClose = () => {
